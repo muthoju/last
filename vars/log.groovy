@@ -1,4 +1,19 @@
+package org.jenkinsci.plugins.mylibrary
+
 def call() {
-    // ANSI color codes: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
-    echo "\u001B[33mHello from my custom step in yellow!\u001B[0m"  // Yellow color
+    pipeline {
+        agent any
+        options {
+            ansiColor('xterm')
+        }
+        stages {
+            stage('Build') {
+                steps {
+                    script {
+                        echo '\033[34mHello\033[0m \033[33mcolorful\033[0m \033[35mworld!\033[0m'
+                    }
+                }
+            }
+        }
+    }
 }
