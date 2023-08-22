@@ -1,6 +1,6 @@
 package org.jenkinsci.plugins.mylibrary
 
-def call() {
+def call(logPath) {
     pipeline {
         agent any
         options {
@@ -10,7 +10,8 @@ def call() {
             stage('Build') {
                 steps {
                     script {
-                        echo '\033[34mHello\033[0m \033[33mcolorful\033[0m \033[35mworld!\033[0m'
+                        echo "Log path: ${logPath}"
+                        // Rest of your pipeline steps...
                     }
                 }
             }
